@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Olist E-Commerce KPI Dashboard</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0f0f1a;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: #4CAF50;
+            letter-spacing: 2px;
+        }
+        .header p {
+            color: #888;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .kpi-card {
+            background: #1e1e2e;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #333;
+            transition: transform 0.2s;
+        }
+        .kpi-card:hover {
+            transform: translateY(-3px);
+            border-color: #4CAF50;
+        }
+        .kpi-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .kpi-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+        }
+        .kpi-sub {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .positive { color: #4CAF50; }
+        .negative { color: #F44336; }
+        .neutral { color: #2196F3; }
+        .kpi-icon {
+            font-size: 24px;
+            float: right;
+            margin-top: -5px;
+        }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .chart-card {
+            background: #1e1e2e;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+        .chart-title {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            color: #888;
+            text-align: left;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+            font-weight: normal;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        td {
+            padding: 8px 0;
+            border-bottom: 1px solid #222;
+            color: #ddd;
+        }
+        td:last-child { text-align: right; color: #4CAF50; }
+        .gauge-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🛒 OLIST E-COMMERCE ANALYTICS</h1>
+        <p>Brazilian E-Commerce Performance Dashboard | 2016 - 2018 | Built with Python & Plotly</p>
+    </div>
+
+    <!-- KPI Cards Row -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-icon">💰</div>
+            <div class="kpi-label">Total Revenue</div>
+            <div class="kpi-value">BRL 16.0M</div>
+            <div class="kpi-sub positive">▲ 127% YoY Growth</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">📦</div>
+            <div class="kpi-label">Total Orders</div>
+            <div class="kpi-value">99,441</div>
+            <div class="kpi-sub positive">▲ 98% Delivered</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">💳</div>
+            <div class="kpi-label">Avg Order Value</div>
+            <div class="kpi-value">BRL 154</div>
+            <div class="kpi-sub neutral">Stable across 2018</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">⭐</div>
+            <div class="kpi-label">Avg Review Score</div>
+            <div class="kpi-value">4.1/5</div>
+            <div class="kpi-sub positive">▲ Strong satisfaction</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">🚚</div>
+            <div class="kpi-label">On-Time Delivery</div>
+            <div class="kpi-value">91.9%</div>
+            <div class="kpi-sub positive">▲ Above 90% target</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">👥</div>
+            <div class="kpi-label">Total Customers</div>
+            <div class="kpi-value">96,096</div>
+            <div class="kpi-sub neutral">Unique buyers</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">🏪</div>
+            <div class="kpi-label">Active Sellers</div>
+            <div class="kpi-value">3,095</div>
+            <div class="kpi-sub neutral">Marketplace partners</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">📅</div>
+            <div class="kpi-label">Avg Delivery Days</div>
+            <div class="kpi-value">12.1</div>
+            <div class="kpi-sub positive">▲ Improved over time</div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="charts-grid">
+        <div class="chart-card">
+            <div class="chart-title">📈 Monthly Revenue Trend</div>
+            <div id="revenueChart"></div>
+        </div>
+        <div class="chart-card">
+            <div class="chart-title">💳 Payment Methods</div>
+            <div id="paymentChart"></div>
+        </div>
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="bottom-grid">
+        <div class="chart-card">
+            <div class="chart-title">🏆 Top Categories by Revenue</div>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Category</th>
+                    <th>Revenue</th>
+                </tr>
+                <tr><td>1</td><td>bed_bath_table</td><td>BRL 1724K</td></tr>
+<tr><td>2</td><td>health_beauty</td><td>BRL 1626K</td></tr>
+<tr><td>3</td><td>computers_accessories</td><td>BRL 1563K</td></tr>
+<tr><td>4</td><td>furniture_decor</td><td>BRL 1408K</td></tr>
+<tr><td>5</td><td>watches_gifts</td><td>BRL 1389K</td></tr>
+<tr><td>6</td><td>sports_leisure</td><td>BRL 1357K</td></tr>
+<tr><td>7</td><td>housewares</td><td>BRL 1073K</td></tr>
+<tr><td>8</td><td>auto</td><td>BRL 836K</td></tr>
+            </table>
+        </div>
+        <div class="chart-card">
+            <div class="chart-title">⭐ Review Distribution</div>
+            <div id="reviewChart"></div>
+        </div>
+        <div class="chart-card">
+            <div class="chart-title">🗺️ Top States by Orders</div>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>State</th>
+                    <th>Orders</th>
+                </tr>
+                <tr><td>26</td><td>SP</td><td>40,501</td></tr>
+<tr><td>19</td><td>RJ</td><td>12,350</td></tr>
+<tr><td>11</td><td>MG</td><td>11,354</td></tr>
+<tr><td>23</td><td>RS</td><td>5,345</td></tr>
+<tr><td>18</td><td>PR</td><td>4,923</td></tr>
+<tr><td>24</td><td>SC</td><td>3,546</td></tr>
+<tr><td>5</td><td>BA</td><td>3,256</td></tr>
+<tr><td>7</td><td>DF</td><td>2,080</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Revenue Chart
+        var revenueData = {
+            x: ['2016-10', '2016-12', '2017-01', '2017-02', '2017-03', '2017-04', '2017-05', '2017-06', '2017-07', '2017-08', '2017-09', '2017-10', '2017-11', '2017-12', '2018-01', '2018-02', '2018-03', '2018-04', '2018-05', '2018-06', '2018-07', '2018-08'],
+            y: [46566.71, 19.62, 127545.67, 271298.65, 414369.39, 390952.18, 567066.73, 490225.6, 566403.93, 646000.61, 701169.99, 751140.27, 1153528.05, 843199.17, 1078606.86, 966510.88, 1120678.0, 1132933.95, 1128836.69, 1012090.68, 1027903.86, 985414.28],
+            type: 'scatter',
+            mode: 'lines',
+            fill: 'tozeroy',
+            line: {color: '#4CAF50', width: 2},
+            fillcolor: 'rgba(76,175,80,0.15)'
+        };
+        Plotly.newPlot('revenueChart', [revenueData], {
+            paper_bgcolor: 'transparent',
+            plot_bgcolor: 'transparent',
+            font: {color: 'white', size: 11},
+            margin: {t:10, r:10, b:40, l:60},
+            height: 220,
+            xaxis: {gridcolor: '#333', tickangle: 45},
+            yaxis: {gridcolor: '#333'}
+        });
+
+        // Payment Chart
+        var paymentData = {
+            labels: ['boleto', 'credit_card', 'debit_card', 'not_defined', 'voucher'],
+            values: [2869361.27, 12542084.19, 217989.79, 0.0, 379436.87],
+            type: 'pie',
+            hole: 0.5,
+            marker: {colors: ['#2196F3', '#4CAF50', '#FF9800', '#F44336']},
+            textinfo: 'percent',
+            textposition: 'inside',
+            hoverinfo: 'label+percent+value',
+        };
+        Plotly.newPlot('paymentChart', [paymentData], {
+            paper_bgcolor: 'transparent',
+            plot_bgcolor: 'transparent',
+            font: {color: 'white', size: 11},
+            margin: {t:10, r:10, b:10, l:10},
+            height: 220,
+            showlegend: false
+        });
+
+        // Review Chart
+        var reviewData = {
+            x: ['1', '2', '3', '4', '5'],
+            y: [11424, 3151, 8179, 19142, 57328],
+            type: 'bar',
+            marker: {color: ['#F44336','#FF5722','#FF9800','#8BC34A','#4CAF50']}
+        };
+        Plotly.newPlot('reviewChart', [reviewData], {
+            paper_bgcolor: 'transparent',
+            plot_bgcolor: 'transparent',
+            font: {color: 'white', size: 11},
+            margin: {t:10, r:10, b:40, l:50},
+            height: 220,
+            xaxis: {gridcolor: '#333'},
+            yaxis: {gridcolor: '#333'}
+        });
+    </script>
+</body>
+</html>
