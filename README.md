@@ -1,8 +1,7 @@
 # 🛒 Olist E-Commerce Analytics Dashboard
 
 ## Overview
-End-to-end exploratory data analysis and interactive dashboard project built on the 
-Olist Brazilian E-Commerce public dataset — 100,000+ real orders across 2016–2018.
+End-to-end exploratory data analysis and interactive dashboard project built on the Olist Brazilian E-Commerce public dataset — 100,000+ real orders across 2016–2018.
 
 ## Key Findings
 - 💰 **Total Revenue:** BRL 16M across 2 years
@@ -30,33 +29,20 @@ Olist Brazilian E-Commerce public dataset — 100,000+ real orders across 2016�
 - **Dataset** — Olist Brazilian E-Commerce (Kaggle)
 
 ## Project Structure
-ecommerce-sales-analytics/
-├── notebooks/
-│ └── 01_sql_analysis.ipynb ← Full analysis notebook
-├── dashboard/
-│ ├── kpi_dashboard.html ← Executive KPI summary
-│ ├── master_dashboard.html ← Master analytics view
-│ ├── revenue_dashboard.html ← Revenue trends
-│ ├── category_dashboard.html ← Category performance
-│ ├── customer_segmentation.html ← RFM segmentation
-│ └── delivery_dashboard.html ← Delivery analytics
-└── README.md
+- `notebooks/01_sql_analysis.ipynb` — Full analysis notebook
+- `dashboard/kpi_dashboard.html` — Executive KPI summary
+- `dashboard/master_dashboard.html` — Master analytics view
+- `dashboard/revenue_dashboard.html` — Revenue trends
+- `dashboard/category_dashboard.html` — Category performance
+- `dashboard/customer_segmentation.html` — RFM segmentation
+- `dashboard/delivery_dashboard.html` — Delivery analytics
 
 ## Business Insights
-1. **São Paulo opportunity** — SP generates 40% of revenue with highest order volume. 
-   Marketing budget should prioritize SP and RJ markets.
-
-2. **Black Friday impact** — November 2017 showed peak revenue spike. 
-   Recommend inventory planning 6 weeks ahead of November each year.
-
-3. **Delivery improvement** — 8.1% late delivery rate correlates with lower review scores. 
-   Logistics audit recommended for March 2018 drop to 78.6% on-time rate.
-
-4. **Credit card dominance** — 78.3% of payments via credit card. 
-   Recommend credit card partnerships and installment payment promotions.
-
-5. **Customer retention gap** — 96% of customers are one-time buyers. 
-   Loyalty program could significantly increase lifetime value.
+1. **São Paulo opportunity** — SP generates 40% of revenue with highest order volume. Marketing budget should prioritize SP and RJ markets.
+2. **Black Friday impact** — November 2017 showed peak revenue spike. Recommend inventory planning 6 weeks ahead of November each year.
+3. **Delivery improvement** — 8.1% late delivery rate correlates with lower review scores. Logistics audit recommended for March 2018 drop to 78.6% on-time rate.
+4. **Credit card dominance** — 78.3% of payments via credit card. Recommend credit card partnerships and installment payment promotions.
+5. **Customer retention gap** — 96% of customers are one-time buyers. Loyalty program could significantly increase lifetime value.
 
 ## Author
 **Meetkumar Patel**
