@@ -21,6 +21,13 @@ End-to-end exploratory data analysis and interactive dashboard project built on 
 | Category Dashboard | Top 10 product categories by revenue |
 | Customer Segmentation | RFM analysis — High/Mid/Regular/Low value |
 | Delivery Dashboard | On-time rate, delivery days, distribution |
+## Live Dashboards
+🔗 [KPI Dashboard](https://meetkumarp07.github.io/ecommerce-sales-analytics/kpi_dashboard.html)
+🔗 [Master Dashboard](https://meetkumarp07.github.io/ecommerce-sales-analytics/master_dashboard.html)
+🔗 [Revenue Dashboard](https://meetkumarp07.github.io/ecommerce-sales-analytics/revenue_dashboard.html)
+🔗 [Category Dashboard](https://meetkumarp07.github.io/ecommerce-sales-analytics/category_dashboard.html)
+🔗 [Customer Segmentation](https://meetkumarp07.github.io/ecommerce-sales-analytics/customer_segmentation.html)
+🔗 [Delivery Dashboard](https://meetkumarp07.github.io/ecommerce-sales-analytics/delivery_dashboard.html)
 
 ## Tech Stack
 - **Python** — pandas, pandasql, plotly, matplotlib, seaborn
